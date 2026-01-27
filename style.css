@@ -1,0 +1,108 @@
+/* --- RESET --- */
+/* O asterisco (*) seleciona TODOS os elementos da página */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Garante que o tamanho inclua a borda e o preenchimento */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fontes modernas */
+}
+
+/* --- CORPO DA PÁGINA --- */
+body {
+    background-color: #121214; /* Fundo bem escuro (quase preto) */
+    color: #e1e1e6; /* Cor do texto (quase branco, para não arder o olho) */
+    /* Flexbox: Usado aqui para centralizar tudo verticalmente se a tela for grande */
+    display: flex;
+    justify-content: center;
+    min-height: 100vh; /* Altura mínima de 100% da tela */
+}
+
+/* --- O CONTAINER (A CAIXA PRINCIPAL) --- */
+.container {
+    width: 100%; /* No celular, ocupa 100% da largura */
+    max-width: 400px; /* No PC, trava em 400px (não fica esticado) */
+    padding: 20px;    /* Um respiro nas bordas internas */
+    text-align: center; /* Centraliza textos e imagens */
+}
+
+/* --- FOTO DE PERFIL --- */
+.foto-perfil {
+    width: 120px;  /* Tamanho fixo */
+    height: 120px;
+    border-radius: 50%; /* Faz ficar redonda */
+    border: 2px solid #04d361; /* Borda verde neon */
+    padding: 3px; /* Espaço entre a foto e a borda */
+    margin-bottom: 20px; /* Empurra o título para baixo */
+    object-fit: cover; /* Garante que a foto não fique achatada/esticada */
+}
+
+/* --- TEXTOS --- */
+h1 {
+    font-size: 1.5rem; /* Tamanho da fonte */
+    margin-bottom: 10px;
+}
+
+p {
+    color: #a8a8b3; /* Um cinza mais claro para textos secundários */
+    margin-bottom: 25px;
+}
+
+/* --- A LISTA DE LINKS --- */
+.lista-links {
+    display: flex;
+    flex-direction: column; /* Coloca um botão embaixo do outro */
+    gap: 15px; /* Espaço entre os botões */
+}
+
+/* --- BOTÕES (Geral) --- */
+.botao {
+    display: block; /* Faz o link se comportar como uma caixa/bloco */
+    background-color: #202024; /* Fundo do botão (cinza chumbo) */
+    color: white;
+    text-decoration: none; /* Tira o sublinhado padrão do link */
+    padding: 15px;
+    border-radius: 8px; /* Bordas arredondadas */
+    border: 1px solid #323238; /* Borda sutil */
+    transition: 0.3s; /* Suaviza a animação do mouse passar em cima */
+    font-weight: bold;
+}
+
+/* Efeito ao passar o mouse (Hover) */
+.botao:hover {
+    border-color: #04d361; /* Borda fica verde */
+    transform: scale(1.02); /* Aumenta levemente o botão */
+}
+
+/* --- ESTILOS ESPECÍFICOS --- */
+/* Aqui diferenciamos Projetos de Contatos usando as classes que você criou */
+
+/* Botões de Projeto (Destaque maior) */
+.botao.projeto {
+    background-color: #29292e; 
+}
+
+/* Botões de Contato (Visual um pouco diferente) */
+.botao.contato {
+    background-color: transparent; /* Fundo transparente */
+    border: 1px solid #04d361; /* Apenas borda verde */
+}
+
+.botao.contato:hover {
+    background-color: #04d361; /* Ao passar o mouse, preenche de verde */
+    color: #121214; /* Texto fica escuro para dar contraste */
+}
+
+/* Linha divisória */
+.divisor {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, transparent, #323238, transparent);
+    margin: 10px 0;
+}
+
+/* --- RODAPÉ --- */
+footer {
+    margin-top: 40px;
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
