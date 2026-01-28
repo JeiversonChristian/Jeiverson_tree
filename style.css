@@ -2,19 +2,19 @@
 /* Defino aqui as cores e fontes para usar em todo o projeto. Facilitando manutenção futura. */
 :root {
     /* Paleta de Cores */
-    --bg-color: #121214;        /* Cor de fundo principal (Cinza muito escuro) */
-    --text-color: #e1e1e6;      /* Cor do texto principal (Branco gelo) */
-    --text-secondary: #a8a8b3;  /* Cor para textos de apoio (Cinza claro) */
-    --primary-color: #04d361;   /* Cor de destaque da minha marca (Verde Neon) */
+    --cor-fundo: #121214;        /* Cor de fundo principal (Cinza muito escuro) */
+    --cor-texto: #e1e1e6;        /* Cor do texto principal (Branco gelo) */
+    --cor-texto-secundario: #a8a8b3; /* Cor para textos de apoio (Cinza claro) */
+    --cor-primaria: #04d361;     /* Cor de destaque da minha marca (Verde Neon) */
     
     /* Cores dos Botões */
-    --btn-bg-default: #202024;  /* Fundo padrão do botão */
-    --btn-bg-project: #29292e;  /* Fundo específico para projetos */
-    --btn-border: #323238;      /* Cor da borda discreta dos botões */
+    --botao-fundo-padrao: #202024; /* Fundo padrão do botão */
+    --botao-fundo-projeto: #29292e; /* Fundo específico para projetos */
+    --botao-borda: #323238;      /* Cor da borda discreta dos botões */
 
     /* Configurações de Layout */
-    --container-width: 400px;   /* Largura máxima do conteúdo no PC */
-    --main-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Família de fontes */
+    --largura-container: 400px;  /* Largura máxima do conteúdo no PC */
+    --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Família de fontes */
 }
 
 /* --- RESET (ZERANDO PADRÕES) --- */
@@ -23,13 +23,13 @@
     margin: 0;                  /* Remove margens padrão do navegador */
     padding: 0;                 /* Remove preenchimentos padrão do navegador */
     box-sizing: border-box;     /* Garante que padding e borda não aumentem a largura total do elemento */
-    font-family: var(--main-font); /* Aplica a fonte definida na variável global */
+    font-family: var(--fonte-principal); /* Aplica a fonte definida na variável global */
 }
 
 /* --- CORPO DA PÁGINA --- */
 body {
-    background-color: var(--bg-color); /* Aplica a cor de fundo global */
-    color: var(--text-color);          /* Aplica a cor de texto global */
+    background-color: var(--cor-fundo); /* Aplica a cor de fundo global */
+    color: var(--cor-texto);          /* Aplica a cor de texto global */
     
     /* Configuração do Flexbox para centralização */
     display: flex;              /* Habilita o modelo flexível de layout */
@@ -40,7 +40,7 @@ body {
 /* --- O CONTAINER PRINCIPAL --- */
 .container {
     width: 100%;                /* Ocupa toda a largura disponível (bom para mobile) */
-    max-width: var(--container-width); /* Limita a largura máxima em telas grandes (PC) */
+    max-width: var(--largura-container); /* Limita a largura máxima em telas grandes (PC) */
     padding: 20px;              /* Adiciona espaçamento interno em todos os lados */
     text-align: center;         /* Centraliza textos e elementos inline (como a imagem) */
 }
@@ -50,7 +50,7 @@ body {
     width: 120px;               /* Define a largura fixa da imagem */
     height: 120px;              /* Define a altura fixa da imagem */
     border-radius: 50%;         /* Transforma a imagem quadrada em um círculo perfeito */
-    border: 2px solid var(--primary-color); /* Adiciona borda sólida usando a cor de destaque */
+    border: 2px solid var(--cor-primaria); /* Adiciona borda sólida usando a cor de destaque */
     padding: 3px;               /* Espaçamento entre a foto e a borda colorida */
     margin-bottom: 20px;        /* Espaçamento externo abaixo da foto */
     object-fit: cover;          /* Corta a imagem para preencher o círculo sem distorcer/esticar */
@@ -63,7 +63,7 @@ h1 {
 }
 
 p {
-    color: var(--text-secondary); /* Usa a cor secundária para dar menos ênfase que o título */
+    color: var(--cor-texto-secundario); /* Usa a cor secundária para dar menos ênfase que o título */
     margin-bottom: 25px;        /* Espaçamento abaixo do parágrafo */
 }
 
@@ -77,19 +77,19 @@ p {
 /* --- ESTILO GERAL DOS BOTÕES --- */
 .botao {
     display: block;             /* Faz o link (a) se comportar como bloco (ocupa largura total) */
-    background-color: var(--btn-bg-default); /* Cor de fundo padrão */
-    color: var(--text-color);   /* Cor do texto */
+    background-color: var(--botao-fundo-padrao); /* Cor de fundo padrão */
+    color: var(--cor-texto);    /* Cor do texto */
     text-decoration: none;      /* Remove o sublinhado padrão de links */
     padding: 15px;              /* Espaçamento interno para "engordar" o botão */
     border-radius: 8px;         /* Arredonda os cantos do botão */
-    border: 1px solid var(--btn-border); /* Borda fina e discreta */
+    border: 1px solid var(--botao-borda); /* Borda fina e discreta */
     transition: 0.3s;           /* Suaviza as mudanças de estado (ex: hover) em 0.3 segundos */
     font-weight: bold;          /* Deixa o texto em negrito */
 }
 
 /* Efeito Hover (Quando o mouse passa por cima) */
 .botao:hover {
-    border-color: var(--primary-color); /* Muda a cor da borda para o verde destaque */
+    border-color: var(--cor-primaria); /* Muda a cor da borda para o verde destaque */
     transform: scale(1.02);     /* Aumenta levemente o tamanho do botão (efeito zoom) */
 }
 
@@ -97,19 +97,19 @@ p {
 
 /* Botões de Projeto (Destaque visual sutil) */
 .botao.projeto {
-    background-color: var(--btn-bg-project); /* Fundo ligeiramente mais claro que o padrão */
+    background-color: var(--botao-fundo-projeto); /* Fundo ligeiramente mais claro que o padrão */
 }
 
 /* Botões de Contato (Estilo Outline/Contorno) */
 .botao.contato {
     background-color: transparent; /* Fundo transparente */
-    border: 1px solid var(--primary-color); /* Borda verde visível */
+    border: 1px solid var(--cor-primaria); /* Borda verde visível */
 }
 
 /* Efeito Hover específico para botões de contato */
 .botao.contato:hover {
-    background-color: var(--primary-color); /* Preenche o fundo de verde */
-    color: var(--bg-color);     /* Muda o texto para escuro (contraste com o verde) */
+    background-color: var(--cor-primaria); /* Preenche o fundo de verde */
+    color: var(--cor-fundo);    /* Muda o texto para escuro (contraste com o verde) */
 }
 
 /* --- DIVISÓRIA VISUAL --- */
@@ -117,7 +117,7 @@ p {
     border: 0;                  /* Remove a borda padrão do elemento hr */
     height: 1px;                /* Define a altura da linha */
     /* Cria um degradê que desaparece nas pontas */
-    background-image: linear-gradient(to right, transparent, var(--btn-border), transparent);
+    background-image: linear-gradient(to right, transparent, var(--botao-borda), transparent);
     margin: 10px 0;             /* Espaçamento acima e abaixo da linha */
 }
 
