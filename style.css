@@ -1,108 +1,129 @@
-/* --- RESET --- */
-/* O asterisco (*) seleciona TODOS os elementos da página */
+/* --- VARIÁVEIS GLOBAIS (:root) --- */
+/* Defino aqui as cores e fontes para usar em todo o projeto. Facilitando manutenção futura. */
+:root {
+    /* Paleta de Cores */
+    --bg-color: #121214;        /* Cor de fundo principal (Cinza muito escuro) */
+    --text-color: #e1e1e6;      /* Cor do texto principal (Branco gelo) */
+    --text-secondary: #a8a8b3;  /* Cor para textos de apoio (Cinza claro) */
+    --primary-color: #04d361;   /* Cor de destaque da minha marca (Verde Neon) */
+    
+    /* Cores dos Botões */
+    --btn-bg-default: #202024;  /* Fundo padrão do botão */
+    --btn-bg-project: #29292e;  /* Fundo específico para projetos */
+    --btn-border: #323238;      /* Cor da borda discreta dos botões */
+
+    /* Configurações de Layout */
+    --container-width: 400px;   /* Largura máxima do conteúdo no PC */
+    --main-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Família de fontes */
+}
+
+/* --- RESET (ZERANDO PADRÕES) --- */
+/* O seletor universal (*) aplica regras a todos os elementos da página */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; /* Garante que o tamanho inclua a borda e o preenchimento */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fontes modernas */
+    margin: 0;                  /* Remove margens padrão do navegador */
+    padding: 0;                 /* Remove preenchimentos padrão do navegador */
+    box-sizing: border-box;     /* Garante que padding e borda não aumentem a largura total do elemento */
+    font-family: var(--main-font); /* Aplica a fonte definida na variável global */
 }
 
 /* --- CORPO DA PÁGINA --- */
 body {
-    background-color: #121214; /* Fundo bem escuro (quase preto) */
-    color: #e1e1e6; /* Cor do texto (quase branco, para não arder o olho) */
-    /* Flexbox: Usado aqui para centralizar tudo verticalmente se a tela for grande */
-    display: flex;
-    justify-content: center;
-    min-height: 100vh; /* Altura mínima de 100% da tela */
+    background-color: var(--bg-color); /* Aplica a cor de fundo global */
+    color: var(--text-color);          /* Aplica a cor de texto global */
+    
+    /* Configuração do Flexbox para centralização */
+    display: flex;              /* Habilita o modelo flexível de layout */
+    justify-content: center;    /* Centraliza o conteúdo horizontalmente */
+    min-height: 100vh;          /* Força o corpo a ter no mínimo 100% da altura da tela visível */
 }
 
-/* --- O CONTAINER (A CAIXA PRINCIPAL) --- */
+/* --- O CONTAINER PRINCIPAL --- */
 .container {
-    width: 100%; /* No celular, ocupa 100% da largura */
-    max-width: 400px; /* No PC, trava em 400px (não fica esticado) */
-    padding: 20px;    /* Um respiro nas bordas internas */
-    text-align: center; /* Centraliza textos e imagens */
+    width: 100%;                /* Ocupa toda a largura disponível (bom para mobile) */
+    max-width: var(--container-width); /* Limita a largura máxima em telas grandes (PC) */
+    padding: 20px;              /* Adiciona espaçamento interno em todos os lados */
+    text-align: center;         /* Centraliza textos e elementos inline (como a imagem) */
 }
 
 /* --- FOTO DE PERFIL --- */
 .foto-perfil {
-    width: 120px;  /* Tamanho fixo */
-    height: 120px;
-    border-radius: 50%; /* Faz ficar redonda */
-    border: 2px solid #04d361; /* Borda verde neon */
-    padding: 3px; /* Espaço entre a foto e a borda */
-    margin-bottom: 20px; /* Empurra o título para baixo */
-    object-fit: cover; /* Garante que a foto não fique achatada/esticada */
+    width: 120px;               /* Define a largura fixa da imagem */
+    height: 120px;              /* Define a altura fixa da imagem */
+    border-radius: 50%;         /* Transforma a imagem quadrada em um círculo perfeito */
+    border: 2px solid var(--primary-color); /* Adiciona borda sólida usando a cor de destaque */
+    padding: 3px;               /* Espaçamento entre a foto e a borda colorida */
+    margin-bottom: 20px;        /* Espaçamento externo abaixo da foto */
+    object-fit: cover;          /* Corta a imagem para preencher o círculo sem distorcer/esticar */
 }
 
-/* --- TEXTOS --- */
+/* --- TÍTULOS E TEXTOS --- */
 h1 {
-    font-size: 1.5rem; /* Tamanho da fonte */
-    margin-bottom: 10px;
+    font-size: 1.5rem;          /* Define o tamanho da fonte (1.5x o padrão) */
+    margin-bottom: 10px;        /* Espaçamento abaixo do título */
 }
 
 p {
-    color: #a8a8b3; /* Um cinza mais claro para textos secundários */
-    margin-bottom: 25px;
+    color: var(--text-secondary); /* Usa a cor secundária para dar menos ênfase que o título */
+    margin-bottom: 25px;        /* Espaçamento abaixo do parágrafo */
 }
 
-/* --- A LISTA DE LINKS --- */
+/* --- LISTA DE LINKS --- */
 .lista-links {
-    display: flex;
-    flex-direction: column; /* Coloca um botão embaixo do outro */
-    gap: 15px; /* Espaço entre os botões */
+    display: flex;              /* Habilita flexbox para organizar os botões */
+    flex-direction: column;     /* Organiza os itens em coluna (um embaixo do outro) */
+    gap: 15px;                  /* Define o espaço automático entre os itens flexíveis */
 }
 
-/* --- BOTÕES (Geral) --- */
+/* --- ESTILO GERAL DOS BOTÕES --- */
 .botao {
-    display: block; /* Faz o link se comportar como uma caixa/bloco */
-    background-color: #202024; /* Fundo do botão (cinza chumbo) */
-    color: white;
-    text-decoration: none; /* Tira o sublinhado padrão do link */
-    padding: 15px;
-    border-radius: 8px; /* Bordas arredondadas */
-    border: 1px solid #323238; /* Borda sutil */
-    transition: 0.3s; /* Suaviza a animação do mouse passar em cima */
-    font-weight: bold;
+    display: block;             /* Faz o link (a) se comportar como bloco (ocupa largura total) */
+    background-color: var(--btn-bg-default); /* Cor de fundo padrão */
+    color: var(--text-color);   /* Cor do texto */
+    text-decoration: none;      /* Remove o sublinhado padrão de links */
+    padding: 15px;              /* Espaçamento interno para "engordar" o botão */
+    border-radius: 8px;         /* Arredonda os cantos do botão */
+    border: 1px solid var(--btn-border); /* Borda fina e discreta */
+    transition: 0.3s;           /* Suaviza as mudanças de estado (ex: hover) em 0.3 segundos */
+    font-weight: bold;          /* Deixa o texto em negrito */
 }
 
-/* Efeito ao passar o mouse (Hover) */
+/* Efeito Hover (Quando o mouse passa por cima) */
 .botao:hover {
-    border-color: #04d361; /* Borda fica verde */
-    transform: scale(1.02); /* Aumenta levemente o botão */
+    border-color: var(--primary-color); /* Muda a cor da borda para o verde destaque */
+    transform: scale(1.02);     /* Aumenta levemente o tamanho do botão (efeito zoom) */
 }
 
-/* --- ESTILOS ESPECÍFICOS --- */
-/* Aqui diferenciamos Projetos de Contatos usando as classes que você criou */
+/* --- VARIAÇÕES DE BOTÕES (MODIFICADORES) --- */
 
-/* Botões de Projeto (Destaque maior) */
+/* Botões de Projeto (Destaque visual sutil) */
 .botao.projeto {
-    background-color: #29292e; 
+    background-color: var(--btn-bg-project); /* Fundo ligeiramente mais claro que o padrão */
 }
 
-/* Botões de Contato (Visual um pouco diferente) */
+/* Botões de Contato (Estilo Outline/Contorno) */
 .botao.contato {
     background-color: transparent; /* Fundo transparente */
-    border: 1px solid #04d361; /* Apenas borda verde */
+    border: 1px solid var(--primary-color); /* Borda verde visível */
 }
 
+/* Efeito Hover específico para botões de contato */
 .botao.contato:hover {
-    background-color: #04d361; /* Ao passar o mouse, preenche de verde */
-    color: #121214; /* Texto fica escuro para dar contraste */
+    background-color: var(--primary-color); /* Preenche o fundo de verde */
+    color: var(--bg-color);     /* Muda o texto para escuro (contraste com o verde) */
 }
 
-/* Linha divisória */
+/* --- DIVISÓRIA VISUAL --- */
 .divisor {
-    border: 0;
-    height: 1px;
-    background-image: linear-gradient(to right, transparent, #323238, transparent);
-    margin: 10px 0;
+    border: 0;                  /* Remove a borda padrão do elemento hr */
+    height: 1px;                /* Define a altura da linha */
+    /* Cria um degradê que desaparece nas pontas */
+    background-image: linear-gradient(to right, transparent, var(--btn-border), transparent);
+    margin: 10px 0;             /* Espaçamento acima e abaixo da linha */
 }
 
 /* --- RODAPÉ --- */
 footer {
-    margin-top: 40px;
-    font-size: 0.8rem;
-    opacity: 0.6;
+    margin-top: 40px;           /* Distância do rodapé para o conteúdo acima */
+    font-size: 0.8rem;          /* Fonte menor que o padrão */
+    opacity: 0.6;               /* Deixa o rodapé semi-transparente/discreto */
 }
