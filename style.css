@@ -1,129 +1,188 @@
 /* --- VARIÁVEIS GLOBAIS (:root) --- */
-/* Defino aqui as cores e fontes para usar em todo o projeto. Facilitando manutenção futura. */
+/* Definição de cores e fontes para facilitar a manutenção */
 :root {
     /* Paleta de Cores */
     --cor-fundo: #121214;        /* Cor de fundo principal (Cinza muito escuro) */
     --cor-texto: #e1e1e6;        /* Cor do texto principal (Branco gelo) */
     --cor-texto-secundario: #a8a8b3; /* Cor para textos de apoio (Cinza claro) */
-    --cor-primaria: #04d361;     /* Cor de destaque da minha marca (Verde Neon) */
+    --cor-primaria: #04d361;     /* Cor de destaque (Verde Neon) */
     
     /* Cores dos Botões */
     --botao-fundo-padrao: #202024; /* Fundo padrão do botão */
     --botao-fundo-projeto: #29292e; /* Fundo específico para projetos */
-    --botao-borda: #323238;      /* Cor da borda discreta dos botões */
+    --botao-borda: #323238;      /* Cor da borda discreta */
 
     /* Configurações de Layout */
-    --largura-container: 400px;  /* Largura máxima do conteúdo no PC */
-    --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Família de fontes */
+    --largura-container: 400px;  /* Largura máxima em telas grandes */
+    --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* --- RESET (ZERANDO PADRÕES) --- */
-/* O seletor universal (*) aplica regras a todos os elementos da página */
 * {
-    margin: 0;                  /* Remove margens padrão do navegador */
-    padding: 0;                 /* Remove preenchimentos padrão do navegador */
-    box-sizing: border-box;     /* Garante que padding e borda não aumentem a largura total do elemento */
-    font-family: var(--fonte-principal); /* Aplica a fonte definida na variável global */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;     /* Mantém o tamanho total fixo incluindo bordas */
+    font-family: var(--fonte-principal);
 }
 
 /* --- CORPO DA PÁGINA --- */
 body {
-    background-color: var(--cor-fundo); /* Aplica a cor de fundo global */
-    color: var(--cor-texto);          /* Aplica a cor de texto global */
-    
-    /* Configuração do Flexbox para centralização */
-    display: flex;              /* Habilita o modelo flexível de layout */
-    justify-content: center;    /* Centraliza o conteúdo horizontalmente */
-    min-height: 100vh;          /* Força o corpo a ter no mínimo 100% da altura da tela visível */
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    display: flex;              /* Flexbox para centralizar o container */
+    justify-content: center;
+    min-height: 100vh;          /* Altura mínima de 100% da tela */
 }
 
 /* --- O CONTAINER PRINCIPAL --- */
 .container {
-    width: 100%;                /* Ocupa toda a largura disponível (bom para mobile) */
-    max-width: var(--largura-container); /* Limita a largura máxima em telas grandes (PC) */
-    padding: 20px;              /* Adiciona espaçamento interno em todos os lados */
-    text-align: center;         /* Centraliza textos e elementos inline (como a imagem) */
+    width: 100%;
+    max-width: var(--largura-container);
+    padding: 20px;
+    text-align: center;
 }
 
 /* --- FOTO DE PERFIL --- */
 .foto-perfil {
-    width: 120px;               /* Define a largura fixa da imagem */
-    height: 120px;              /* Define a altura fixa da imagem */
-    border-radius: 50%;         /* Transforma a imagem quadrada em um círculo perfeito */
-    border: 2px solid var(--cor-primaria); /* Adiciona borda sólida usando a cor de destaque */
-    padding: 3px;               /* Espaçamento entre a foto e a borda colorida */
-    margin-bottom: 20px;        /* Espaçamento externo abaixo da foto */
-    object-fit: cover;          /* Corta a imagem para preencher o círculo sem distorcer/esticar */
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;         /* Formato circular */
+    border: 2px solid var(--cor-primaria);
+    padding: 3px;
+    margin-bottom: 20px;
+    object-fit: cover;          /* Evita distorção da imagem */
 }
 
 /* --- TÍTULOS E TEXTOS --- */
 h1 {
-    font-size: 1.5rem;          /* Define o tamanho da fonte (1.5x o padrão) */
-    margin-bottom: 10px;        /* Espaçamento abaixo do título */
+    font-size: 1.5rem;
+    margin-bottom: 10px;
 }
 
 p {
-    color: var(--cor-texto-secundario); /* Usa a cor secundária para dar menos ênfase que o título */
-    margin-bottom: 25px;        /* Espaçamento abaixo do parágrafo */
+    color: var(--cor-texto-secundario);
+    margin-bottom: 25px;
 }
 
 /* --- LISTA DE LINKS --- */
 .lista-links {
-    display: flex;              /* Habilita flexbox para organizar os botões */
-    flex-direction: column;     /* Organiza os itens em coluna (um embaixo do outro) */
-    gap: 15px;                  /* Define o espaço automático entre os itens flexíveis */
+    display: flex;
+    flex-direction: column;     /* Itens um abaixo do outro */
+    gap: 15px;                  /* Espaço entre os botões */
 }
 
 /* --- ESTILO GERAL DOS BOTÕES --- */
 .botao {
-    display: block;             /* Faz o link (a) se comportar como bloco (ocupa largura total) */
-    background-color: var(--botao-fundo-padrao); /* Cor de fundo padrão */
-    color: var(--cor-texto);    /* Cor do texto */
-    text-decoration: none;      /* Remove o sublinhado padrão de links */
-    padding: 15px;              /* Espaçamento interno para "engordar" o botão */
-    border-radius: 8px;         /* Arredonda os cantos do botão */
-    border: 1px solid var(--botao-borda); /* Borda fina e discreta */
-    transition: 0.3s;           /* Suaviza as mudanças de estado (ex: hover) em 0.3 segundos */
-    font-weight: bold;          /* Deixa o texto em negrito */
+    display: block;
+    background-color: var(--botao-fundo-padrao);
+    color: var(--cor-texto);
+    text-decoration: none;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid var(--botao-borda);
+    transition: 0.3s;           /* Suaviza o efeito hover */
+    font-weight: bold;
 }
 
-/* Efeito Hover (Quando o mouse passa por cima) */
+/* Efeito Hover */
 .botao:hover {
-    border-color: var(--cor-primaria); /* Muda a cor da borda para o verde destaque */
-    transform: scale(1.02);     /* Aumenta levemente o tamanho do botão (efeito zoom) */
+    border-color: var(--cor-primaria);
+    transform: scale(1.02);
 }
 
-/* --- VARIAÇÕES DE BOTÕES (MODIFICADORES) --- */
-
-/* Botões de Projeto (Destaque visual sutil) */
+/* --- MODIFICADORES DE BOTÕES --- */
 .botao.projeto {
-    background-color: var(--botao-fundo-projeto); /* Fundo ligeiramente mais claro que o padrão */
+    background-color: var(--botao-fundo-projeto);
 }
 
-/* Botões de Contato (Estilo Outline/Contorno) */
 .botao.contato {
-    background-color: transparent; /* Fundo transparente */
-    border: 1px solid var(--cor-primaria); /* Borda verde visível */
+    background-color: transparent;
+    border: 1px solid var(--cor-primaria);
 }
 
-/* Efeito Hover específico para botões de contato */
 .botao.contato:hover {
-    background-color: var(--cor-primaria); /* Preenche o fundo de verde */
-    color: var(--cor-fundo);    /* Muda o texto para escuro (contraste com o verde) */
+    background-color: var(--cor-primaria);
+    color: var(--cor-fundo);
 }
 
 /* --- DIVISÓRIA VISUAL --- */
 .divisor {
-    border: 0;                  /* Remove a borda padrão do elemento hr */
-    height: 1px;                /* Define a altura da linha */
-    /* Cria um degradê que desaparece nas pontas */
+    border: 0;
+    height: 1px;
     background-image: linear-gradient(to right, transparent, var(--botao-borda), transparent);
-    margin: 10px 0;             /* Espaçamento acima e abaixo da linha */
+    margin: 10px 0;
 }
 
 /* --- RODAPÉ --- */
 footer {
-    margin-top: 40px;           /* Distância do rodapé para o conteúdo acima */
-    font-size: 0.8rem;          /* Fonte menor que o padrão */
-    opacity: 0.6;               /* Deixa o rodapé semi-transparente/discreto */
+    margin-top: 40px;
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+/* --- ESTILOS DO FORMULÁRIO DE CONTATO --- */
+
+/* Configuração da caixa do formulário */
+.formulario {
+    display: flex;              /* Organiza os campos um abaixo do outro */
+    flex-direction: column;
+    text-align: left;           /* Alinha os textos (rótulos) à esquerda */
+    gap: 15px;                  /* Espaço entre os campos */
+    margin-top: 20px;
+}
+
+/* Estilo dos Rótulos (Labels - "Seu E-mail", "Mensagem") */
+label {
+    font-size: 0.9rem;
+    color: var(--cor-texto);
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;             /* Garante que o rótulo fique em uma linha própria */
+}
+
+/* Estilo dos Campos de Texto (Input e Textarea) */
+input, textarea {
+    width: 100%;                /* Ocupa toda a largura disponível */
+    padding: 15px;              /* Espaço interno para o texto não colar na borda */
+    background-color: var(--botao-fundo-padrao); /* Mesma cor dos botões */
+    border: 1px solid var(--botao-borda);        /* Borda discreta */
+    border-radius: 8px;         /* Cantos arredondados */
+    color: var(--cor-texto);    /* Cor do texto digitado */
+    font-size: 1rem;
+    outline: none;              /* Remove a borda azul padrão do navegador */
+    resize: vertical;           /* Permite redimensionar o texto apenas verticalmente */
+    font-family: var(--fonte-principal);
+}
+
+/* Efeito ao Clicar no Campo (Foco) */
+input:focus, textarea:focus {
+    border-color: var(--cor-primaria); /* A borda fica verde neon */
+}
+
+/* Ajuste específico para o botão de enviar dentro do formulário */
+button.botao {
+    cursor: pointer;            /* Mostra a mãozinha do mouse */
+    width: 100%;                /* Botão largura total */
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+/* --- ESTILOS DA MENSAGEM DE STATUS (AJAX) --- */
+.status-envio {
+    font-size: 0.9rem;
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+    min-height: 20px; /* Reserva o espaço para não pular layout */
+    transition: 0.3s;
+}
+
+/* Classe que o JS vai adicionar se der certo */
+.sucesso {
+    color: var(--cor-primaria); /* Verde */
+}
+
+/* Classe que o JS vai adicionar se der erro */
+.erro {
+    color: #ff3333; /* Vermelho claro */
 }
