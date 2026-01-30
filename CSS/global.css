@@ -1,0 +1,49 @@
+/* --- VARIÁVEIS GLOBAIS (:root) --- */
+:root {
+    /* Paleta de Cores */
+    --cor-fundo: #121214;
+    --cor-texto: #e1e1e6;
+    --cor-texto-secundario: #a8a8b3;
+    --cor-primaria: #04d361;
+    
+    /* Cores dos Botões */
+    --botao-fundo-padrao: #202024;
+    --botao-fundo-projeto: #29292e;
+    --botao-borda: #323238;
+
+    /* Configurações de Layout */
+    --largura-container: 400px;
+    --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* --- RESET (ZERANDO PADRÕES) --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--fonte-principal);
+}
+
+/* --- CORPO DA PÁGINA --- */
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* --- O CONTAINER PRINCIPAL --- */
+.container {
+    width: 100%;
+    max-width: var(--largura-container);
+    padding: 20px;
+    text-align: center;
+}
+
+/* --- RODAPÉ --- */
+footer {
+    margin-top: 40px;
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
