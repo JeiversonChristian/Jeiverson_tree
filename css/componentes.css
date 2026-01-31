@@ -1,0 +1,106 @@
+/* --- FOTO DE PERFIL --- */
+.foto-perfil {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid var(--cor-primaria);
+    padding: 3px;
+    margin-bottom: 20px;
+    object-fit: cover;
+}
+
+/* --- TÍTULOS E TEXTOS --- */
+h1 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+p {
+    color: var(--cor-texto-secundario);
+    margin-bottom: 25px;
+}
+
+/* --- LISTA DE LINKS --- */
+.lista-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* --- BOTÕES --- */
+.botao {
+    display: block;
+    background-color: var(--botao-fundo-padrao);
+    color: var(--cor-texto);
+    text-decoration: none;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid var(--botao-borda);
+    transition: 0.3s;
+    font-weight: bold;
+    cursor: pointer; /* Garante a mãozinha em botões de form */
+}
+
+.botao:hover {
+    border-color: var(--cor-primaria);
+    transform: scale(1.02);
+}
+
+.botao.projeto { background-color: var(--botao-fundo-projeto); }
+.botao.contato { background-color: transparent; border: 1px solid var(--cor-primaria); }
+.botao.contato:hover { background-color: var(--cor-primaria); color: var(--cor-fundo); }
+
+/* --- DIVISÓRIA --- */
+.divisor {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, transparent, var(--botao-borda), transparent);
+    margin: 10px 0;
+}
+
+/* --- FORMULÁRIO --- */
+.formulario {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+label {
+    font-size: 0.9rem;
+    color: var(--cor-texto);
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--botao-fundo-padrao);
+    border: 1px solid var(--botao-borda);
+    border-radius: 8px;
+    color: var(--cor-texto);
+    font-size: 1rem;
+    outline: none;
+    resize: vertical;
+    font-family: var(--fonte-principal);
+}
+
+input:focus, textarea:focus { border-color: var(--cor-primaria); }
+
+button.botao { width: 100%; margin-top: 10px; font-size: 1rem; }
+
+/* --- MENSAGEM STATUS (AJAX) --- */
+.status-envio {
+    font-size: 0.9rem;
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+    min-height: 20px;
+    transition: 0.3s;
+}
+
+.sucesso { color: var(--cor-primaria); }
+.erro { color: #ff3333; }
