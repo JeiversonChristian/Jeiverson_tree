@@ -8,15 +8,15 @@
     
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌳</text></svg>">
 
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/componentes.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/componentes.css">
+    
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    
     <script type="text/javascript">
        (function(){
-            /* Inicializa com minha Public Key */
-            emailjs.init("I6FW57fW5yEVHcM-N");
+          emailjs.init("I6FW57fW5yEVHcM-N");
        })();
     </script>
 </head>
@@ -25,7 +25,7 @@
 
     <div class="container">
         
-        <img src="imagens/foto-perfil.jpg" alt="Foto de Jeiverson Christian" class="foto-perfil" style="width: 80px; height: 80px;">
+        <img src="../imagens/foto-perfil.jpg" alt="Foto de Jeiverson Christian" class="foto-perfil" style="width: 80px; height: 80px;">
         
         <h1>Fale Comigo 📬</h1>
         <p>Preencha os campos abaixo para me enviar um e-mail.</p>
@@ -44,17 +44,28 @@
             <label for="mensagem">Mensagem:</label>
             <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua mensagem aqui..." required></textarea>
 
-            <button type="submit" class="botao contato">Enviar Mensagem</button>
+            <button type="submit" class="botao contato">
+                <i class="ph ph-paper-plane-right"></i> Enviar Mensagem
+            </button>
 
             <p id="mensagem-status" class="status-envio"></p>
 
         </form>
 
-        <div style="margin-top: 20px;">
-            <a href="index.html" style="color: var(--cor-texto-secundario); text-decoration: none; font-size: 0.9rem;">
-                ← Voltar para o início
+        <nav class="menu-navegacao">
+            <a href="../index.html" class="item-navegacao" title="Início">
+                <i class="ph ph-house"></i>
             </a>
-        </div>
+            <a href="projetos.html" class="item-navegacao" title="Projetos">
+                <i class="ph ph-rocket-launch"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/jeiverson-christian/" target="_blank" class="item-navegacao" title="LinkedIn">
+                <i class="ph ph-linkedin-logo"></i>
+            </a>
+            <a href="https://github.com/JeiversonChristian" target="_blank" class="item-navegacao" title="GitHub">
+                <i class="ph ph-github-logo"></i>
+            </a>
+        </nav>
         
         <footer>
             <p>Desenvolvido por Jeiverson Christian</p>
@@ -62,7 +73,7 @@
 
     </div>
 
-    <script type="module" src="js/app.js"></script>
+    <script type="module" src="../js/app.js"></script>
 
 </body>
 </html>

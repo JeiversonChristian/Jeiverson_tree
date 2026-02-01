@@ -1,12 +1,16 @@
+/* =======================================================
+   COMPONENTES VISUAIS (BOTÕES, CARDS, FORMULÁRIOS, ETC.)
+   ======================================================= */
+
 /* --- FOTO DE PERFIL --- */
 .foto-perfil {
     width: 120px;
     height: 120px;
-    border-radius: 50%;
-    border: 2px solid var(--cor-primaria);
-    padding: 3px;
+    border-radius: 50%; /* Deixa a imagem redondinha */
+    border: 2px solid var(--cor-primaria); /* Borda verde neon */
+    padding: 3px; /* Espacinho entre a foto e a borda */
     margin-bottom: 20px;
-    object-fit: cover;
+    object-fit: cover; /* Garante que a foto não fique esticada/amassada */
 }
 
 /* --- TÍTULOS E TEXTOS --- */
@@ -16,53 +20,82 @@ h1 {
 }
 
 p {
-    color: var(--cor-texto-secundario);
+    color: var(--cor-texto-secundario); /* Cor cinza mais suave */
     margin-bottom: 25px;
 }
 
-/* --- LISTA DE LINKS --- */
+/* --- LISTA DE LINKS (LAYOUT) --- */
 .lista-links {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
+    flex-direction: column; /* Um item embaixo do outro */
+    gap: 15px; /* Espaço entre os botões */
 }
 
-/* --- BOTÕES --- */
+/* --- ESTILO GERAL DOS BOTÕES --- */
 .botao {
-    display: block;
+    display: flex; /* Mudei para flex para alinhar ícone e texto */
+    align-items: center; /* Centraliza verticalmente o conteúdo */
+    justify-content: center; /* Centraliza horizontalmente o conteúdo */
+    gap: 10px; /* Cria um espacinho entre o ícone e o texto */
+    width: 100%; /* Ocupa a largura total disponível */
     background-color: var(--botao-fundo-padrao);
     color: var(--cor-texto);
-    text-decoration: none;
+    text-decoration: none; /* Tira o sublinhado feio de link */
     padding: 15px;
-    border-radius: 8px;
+    border-radius: 8px; /* Cantos arredondados */
     border: 1px solid var(--botao-borda);
-    transition: 0.3s;
+    transition: 0.3s; /* Suaviza as mudanças de cor/tamanho */
     font-weight: bold;
-    cursor: pointer; /* Garante a mãozinha em botões de form */
+    cursor: pointer; /* Garante que apareça a mãozinha, mesmo em botões de formulário */
 }
 
+/* Efeito Hover (Quando passo o mouse) */
 .botao:hover {
-    border-color: var(--cor-primaria);
-    transform: scale(1.02);
+    border-color: var(--cor-primaria); /* Borda fica verde */
+    transform: scale(1.02); /* Dá um leve zoom */
 }
 
-.botao.projeto { background-color: var(--botao-fundo-projeto); }
-.botao.contato { background-color: transparent; border: 1px solid var(--cor-primaria); }
-.botao.contato:hover { background-color: var(--cor-primaria); color: var(--cor-fundo); }
+/* Variações de Botões (Modificadores) */
+.botao.projeto { 
+    background-color: var(--botao-fundo-projeto); 
+}
+
+.botao.contato { 
+    background-color: transparent; 
+    border: 1px solid var(--cor-primaria); 
+}
+
+.botao.contato:hover { 
+    background-color: var(--cor-primaria); 
+    color: var(--cor-fundo); /* Texto fica escuro para contrastar */
+}
+
+/* --- NOVO: Botão estilo GitHub (Ajustado para Outline) --- */
+.botao.github {
+    background-color: transparent; /* Fundo transparente igual aos outros */
+    border: 1px solid var(--cor-primaria);
+    color: var(--cor-texto);
+}
+
+.botao.github:hover {
+    background-color: var(--cor-primaria); 
+    color: var(--cor-fundo); /* Texto fica escuro para contrastar */
+}
 
 /* --- DIVISÓRIA --- */
 .divisor {
     border: 0;
     height: 1px;
+    /* Um degradê que desaparece nas pontas */
     background-image: linear-gradient(to right, transparent, var(--botao-borda), transparent);
     margin: 10px 0;
 }
 
-/* --- FORMULÁRIO --- */
+/* --- FORMULÁRIO DE CONTATO --- */
 .formulario {
     display: flex;
     flex-direction: column;
-    text-align: left;
+    text-align: left; /* Alinho os rótulos à esquerda */
     gap: 15px;
     margin-top: 20px;
 }
@@ -83,24 +116,140 @@ input, textarea {
     border-radius: 8px;
     color: var(--cor-texto);
     font-size: 1rem;
-    outline: none;
-    resize: vertical;
+    outline: none; /* Tiro a borda azul padrão do navegador */
+    resize: vertical; /* Só deixo redimensionar para baixo, não pros lados */
     font-family: var(--fonte-principal);
 }
 
-input:focus, textarea:focus { border-color: var(--cor-primaria); }
+/* Foco: Quando clico para digitar */
+input:focus, textarea:focus { 
+    border-color: var(--cor-primaria); 
+}
 
-button.botao { width: 100%; margin-top: 10px; font-size: 1rem; }
+/* Ajuste específico para o botão de enviar dentro do form */
+button.botao { 
+    width: 100%; 
+    margin-top: 10px; 
+    font-size: 1rem; 
+}
 
-/* --- MENSAGEM STATUS (AJAX) --- */
+/* --- MENSAGEM DE STATUS (FEEDBACK DO ENVIO) --- */
 .status-envio {
     font-size: 0.9rem;
     margin-top: 15px;
     text-align: center;
     font-weight: bold;
-    min-height: 20px;
+    min-height: 20px; /* Reservo espaço para o layout não pular quando a msg aparecer */
     transition: 0.3s;
 }
 
-.sucesso { color: var(--cor-primaria); }
-.erro { color: #ff3333; }
+.sucesso { color: var(--cor-primaria); } /* Verde */
+.erro { color: #ff3333; } /* Vermelho */
+
+/* =========================================
+   CARDS DE PROJETOS (PÁGINA DE PORTFÓLIO)
+   ========================================= */
+
+/* A Grade (Grid): Onde os cartões vão morar */
+.grade-projetos {
+    display: grid;
+    /* Configuração mágica de responsividade: */
+    /* Cria colunas que têm no mínimo 280px. Se a tela for menor, empilha. Se for maior, coloca lado a lado. */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px; /* Espaço entre os cartões */
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+/* O Cartão Individual */
+.cartao-projeto {
+    background-color: var(--botao-fundo-padrao);
+    border: 1px solid var(--botao-borda);
+    border-radius: 12px; /* Bordas um pouco mais redondas que os botões */
+    padding: 20px;
+    text-align: left;
+    transition: 0.3s;
+    /* Flexbox para garantir que o botão fique sempre no final do card, mesmo com textos de tamanhos diferentes */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Efeito ao passar o mouse no cartão */
+.cartao-projeto:hover {
+    border-color: var(--cor-primaria);
+    transform: translateY(-5px); /* O cartão "flutua" levemente para cima */
+}
+
+/* Imagem do Projeto (Thumb) */
+.imagem-projeto {
+    width: 100%;
+    height: 150px; /* Altura fixa para manter o padrão visual */
+    object-fit: cover; /* Corta a imagem se necessário para preencher sem distorcer */
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 1px solid var(--botao-borda);
+}
+
+/* Título do Projeto no Card */
+.cartao-projeto h3 {
+    color: var(--cor-texto);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+/* Descrição do Projeto no Card */
+.cartao-projeto p {
+    font-size: 0.9rem;
+    color: var(--cor-texto-secundario);
+    line-height: 1.5; /* Espaçamento entre linhas para facilitar leitura */
+    margin-bottom: 20px;
+}
+
+/* NOVO: Container para os botões do card (lado a lado) */
+.acoes-do-card {
+    display: flex;
+    gap: 10px; /* Espaço entre os botões */
+    margin-top: auto; /* Empurra para o fundo do card */
+}
+
+/* Ajuste para botões dentro do card ficarem menores/ajustados */
+.acoes-do-card .botao {
+    padding: 10px; /* Menos "gordinho" que os botões principais */
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   NOVO: MENU DE NAVEGAÇÃO INFERIOR (RODAPÉ FLUTUANTE)
+   ========================================= */
+.menu-navegacao {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espaço entre os ícones */
+    margin-top: 40px;
+    padding: 15px 30px;
+    background-color: rgba(32, 32, 36, 0.9); /* Fundo semi-transparente */
+    border: 1px solid var(--botao-borda);
+    border-radius: 50px; /* Formato de pílula */
+    backdrop-filter: blur(10px); /* Efeito de vidro fosco atrás */
+    
+    /* Centralizando na tela */
+    width: fit-content; /* O container só cresce o necessário para o conteúdo */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Os links (ícones) do menu */
+.item-navegacao {
+    color: var(--cor-texto-secundario);
+    font-size: 1.5rem; /* Tamanho do ícone */
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.item-navegacao:hover {
+    color: var(--cor-primaria); /* Fica verde ao passar o mouse */
+    transform: translateY(-3px); /* Pula levemente */
+}
