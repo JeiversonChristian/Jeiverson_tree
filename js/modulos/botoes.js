@@ -34,7 +34,7 @@ export default function iniciarLogicaBotoes() {
                     clearTimeout(idDoTemporizador);
                 }
 
-                /* MUDANÇA IMPORTANTE: Adiciono uma classe especial para avisar o CSS */
+                /* Adiciono uma classe especial para avisar o CSS */
                 /* Essa classe vai impedir o efeito hover verde enquanto estivermos no modo alerta */
                 botao.classList.add('botao-alerta');
 
@@ -51,7 +51,7 @@ export default function iniciarLogicaBotoes() {
                     botao.style.borderColor = '';   
                     botao.style.color = '';         
                     
-                    /* MUDANÇA IMPORTANTE: Removo a classe de alerta, liberando o hover verde de novo */
+                    /* Removo a classe de alerta, liberando o hover verde de novo */
                     botao.classList.remove('botao-alerta');
                     
                     /* Reseto o ID do temporizador */
@@ -61,7 +61,7 @@ export default function iniciarLogicaBotoes() {
         });
     });
 
-    /* --- NOVA LÓGICA: IMAGENS GATILHO --- */
+    /* --- LÓGICA: IMAGENS GATILHO --- */
     /* Aqui eu procuro as imagens que devem funcionar como botões de alerta */
     const imagensGatilho = document.querySelectorAll('.gatilho-aviso');
 
@@ -76,9 +76,22 @@ export default function iniciarLogicaBotoes() {
             const botaoAlvo = cartaoPai.querySelector('.botao[href="#"]');
 
             /* Se eu achar o botão, eu simulo um clique nele via código! */
-            /* Isso faz rodar toda a lógica lá de cima (texto amarelo, timer, etc) */
             if (botaoAlvo) {
                 botaoAlvo.click();
+
+                /* MUDANÇA: Aplico a borda amarela também na imagem para reforçar o aviso */
+                /* Procuro a tag <img> dentro do link clicado */
+                const imagemReal = imagemLink.querySelector('img');
+                
+                if (imagemReal) {
+                    /* Pinto a borda de amarelo */
+                    imagemReal.style.borderColor = '#ffbb33';
+
+                    /* Configuro o tempo para remover a borda (2 segundos, igual ao botão) */
+                    setTimeout(() => {
+                        imagemReal.style.borderColor = '';
+                    }, 2000);
+                }
             }
         });
     });

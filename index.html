@@ -25,7 +25,7 @@
 
     <div class="container">
         
-        <img src="imagens/foto-perfil.jpg" alt="Foto de Jeiverson Christian" class="foto-perfil">
+        <img src="imagens/foto-perfil.jpg" alt="Foto de Jeiverson Christian" class="foto-perfil gatilho-modal" title="Clique para ampliar!">
         
         <h1>@Jeiverson_tree 🌳</h1>
         
@@ -35,6 +35,10 @@
             
             <a href="paginas/projetos.html" class="botao projeto">
                 <i class="ph ph-rocket-launch"></i> Conheça meu Portfólio
+            </a>
+
+            <a href="paginas/orcamento.html" class="botao projeto">
+                <i class="ph ph-briefcase"></i> Encomende sua página web!
             </a>
 
             <hr class="divisor">
@@ -60,6 +64,26 @@
             <p>Desenvolvido por Jeiverson Christian</p>
         </footer>
 
+    </div>
+
+    <div id="modal-perfil" class="modal-overlay">
+        <div class="modal-conteudo">
+            <img src="imagens/foto-perfil.jpg" alt="Jeiverson Ampliado" class="foto-ampliada">
+            
+            <p class="texto-modal">
+                Obrigado por apreciar minha beleza! 😎<br>
+                <br>
+                <strong>Encomende sua página web!</strong>
+            </p>
+
+            <a href="paginas/orcamento.html" class="botao projeto">
+                <i class="ph ph-handshake"></i> Fazer Orçamento
+            </a>
+
+            <p style="margin-top: 15px; font-size: 0.8rem; cursor: pointer; color: #666;" id="fechar-modal">
+                (Clique fora para fechar)
+            </p>
+        </div>
     </div>
 
     <script type="module" src="js/app.js"></script>
