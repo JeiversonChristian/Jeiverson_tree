@@ -2,7 +2,7 @@
    COMPONENTES VISUAIS (BOTÕES, CARDS, FORMULÁRIOS, ETC.)
    ======================================================= */
 
-/* --- FOTO DE PERFIL --- */
+/* --- FOTO DE PERFIL (NA PÁGINA INICIAL) --- */
 .foto-perfil {
     /* Defino a largura fixa da imagem para não variar */
     width: 120px;
@@ -18,6 +18,18 @@
     margin-bottom: 20px;
     /* Garanto que a imagem cubra o espaço sem ficar esticada ou deformada */
     object-fit: cover;
+    /* NOVO: Mudo o cursor do mouse para a "mãozinha", indicando que é clicável */
+    cursor: pointer;
+    /* NOVO: Adiciono uma transição suave para quando o mouse passar por cima ou sair */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* NOVO: Efeito ao passar o mouse na foto de perfil */
+.foto-perfil:hover {
+    /* Aumento a imagem em 5% para dar um efeito de "zoom" */
+    transform: scale(1.05);
+    /* Adiciono uma sombra (brilho) verde em volta da foto */
+    box-shadow: 0 0 15px rgba(4, 211, 97, 0.4);
 }
 
 /* --- TÍTULOS E TEXTOS --- */
@@ -106,7 +118,7 @@ p {
 }
 
 /* 2. Botão de CONTATO e SECUNDÁRIOS (Outline) */
-/* Usado para Email, LinkedIn, Código, Em Breve */
+/* Usado para Email, LinkedIn, Código, Em Breve e agora também para VER SITE */
 .botao.contato { 
     /* Deixo o fundo transparente para ter menos peso visual que o principal */
     background-color: transparent; 
@@ -298,8 +310,11 @@ button.botao {
 /* --- NOVO: Estilo para o link que envolve a imagem --- */
 /* Isso garante que o link não tenha decorações estranhas e ocupe o espaço correto */
 .link-imagem {
+    /* Faço o link se comportar como um bloco */
     display: block;
+    /* Tiro qualquer sublinhado padrão */
     text-decoration: none;
+    /* Mostro a mãozinha ao passar o mouse */
     cursor: pointer;
 }
 
@@ -413,4 +428,116 @@ button.botao {
     color: var(--cor-primaria);
     /* O ícone sobe levemente */
     transform: translateY(-3px);
+}
+
+/* =========================================
+   NOVO: MODAL (JANELA QUE ABRE AO CLICAR NA FOTO)
+   ========================================= */
+
+/* O fundo escuro que cobre todo o site quando o modal abre */
+.modal-overlay {
+    /* Fixo na tela: mesmo que role a página, o fundo fica parado */
+    position: fixed;
+    /* Começa no topo absoluto */
+    top: 0;
+    /* Começa na esquerda absoluta */
+    left: 0;
+    /* Ocupa 100% da largura da tela */
+    width: 100%;
+    /* Ocupa 100% da altura da tela */
+    height: 100%;
+    /* Cor preta com 85% de opacidade (bem escuro) */
+    background-color: rgba(0, 0, 0, 0.85);
+    /* Garanto que fique em cima de todos os outros elementos do site */
+    z-index: 1000;
+    
+    /* Uso flexbox para centralizar a caixinha do modal bem no meio da tela */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Estado inicial: invisível */
+    opacity: 0;
+    visibility: hidden;
+    /* Adiciono transição suave para aparecer e desaparecer */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Classe especial que o JavaScript adiciona quando queremos mostrar o modal */
+.modal-overlay.aberto {
+    /* Torno visível */
+    opacity: 1;
+    visibility: visible;
+}
+
+/* A caixinha de conteúdo (onde fica a foto grande e o texto) dentro do modal */
+.modal-conteudo {
+    /* Cor de fundo igual ao do site */
+    background-color: var(--cor-fundo);
+    /* Borda verde para destacar */
+    border: 2px solid var(--cor-primaria);
+    /* Espaçamento interno */
+    padding: 30px;
+    /* Bordas bem arredondadas */
+    border-radius: 20px;
+    /* Centralizo o texto e a foto */
+    text-align: center;
+    /* Garanto que em celulares pequenos a caixa não ultrapasse 90% da tela */
+    max-width: 90%;
+    /* Largura padrão fixa para telas maiores */
+    width: 350px;
+    /* Necessário para posicionamentos absolutos internos se houver */
+    position: relative;
+    /* Sombra verde brilhante atrás da caixa */
+    box-shadow: 0 0 30px rgba(4, 211, 97, 0.2);
+    
+    /* Estado inicial da animação: um pouco menor (0.8x) */
+    transform: scale(0.8);
+    /* Transição suave para o efeito de "crescer" ao abrir */
+    transition: transform 0.3s ease;
+}
+
+/* Quando o modal está aberto, a caixinha cresce para o tamanho normal (1x) */
+.modal-overlay.aberto .modal-conteudo {
+    transform: scale(1);
+}
+
+/* Estilo da foto ampliada dentro do modal */
+.foto-ampliada {
+    /* Largura maior que a do perfil */
+    width: 150px;
+    /* Altura igual para ser quadrada/redonda */
+    height: 150px;
+    /* Redonda */
+    border-radius: 50%;
+    /* Borda verde um pouco mais grossa */
+    border: 3px solid var(--cor-primaria);
+    /* Ajuste da imagem para não distorcer */
+    object-fit: cover;
+    /* Espaço abaixo da foto */
+    margin-bottom: 20px;
+}
+
+/* Estilo do texto divertido dentro do modal */
+.texto-modal {
+    /* Tamanho da fonte um pouco maior */
+    font-size: 1.1rem;
+    /* Cor do texto principal */
+    color: var(--cor-texto);
+    /* Espaço abaixo do texto */
+    margin-bottom: 20px;
+    /* Espaçamento entre linhas para leitura confortável */
+    line-height: 1.5;
+}
+
+/* NOVO: Estilo para o parágrafo de "fechar" no modal (substituindo o style inline) */
+#fechar-modal {
+    /* Margem acima para separar do botão */
+    margin-top: 15px;
+    /* Fonte pequenininha */
+    font-size: 0.8rem;
+    /* Mãozinha para indicar clique */
+    cursor: pointer;
+    /* Cor cinza escura */
+    color: #666;
 }

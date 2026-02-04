@@ -529,3 +529,15 @@ button.botao {
     /* Espaçamento entre linhas para leitura confortável */
     line-height: 1.5;
 }
+
+/* NOVO: Estilo para o parágrafo de "fechar" no modal (substituindo o style inline) */
+#fechar-modal {
+    /* Margem acima para separar do botão */
+    margin-top: 15px;
+    /* Fonte pequenininha */
+    font-size: 0.8rem;
+    /* Mãozinha para indicar clique */
+    cursor: pointer;
+    /* Cor cinza escura */
+    color: #666;
+}
