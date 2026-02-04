@@ -1,0 +1,114 @@
+/* =======================================================
+   MÓDULO: BOTÕES
+   (Estilos base, variantes e interatividade)
+   ======================================================= */
+
+/* --- ESTILO GERAL DOS BOTÕES (BASE PARA TODOS) --- */
+.botao {
+    /* Uso flexbox para alinhar o ícone e o texto dentro do botão */
+    display: flex;
+    /* Centralizo verticalmente o conteúdo dentro do botão */
+    align-items: center;
+    /* Centralizo horizontalmente o conteúdo dentro do botão */
+    justify-content: center;
+    /* Crio um espaço de 10px entre o ícone e o texto */
+    gap: 10px;
+    /* Faço o botão esticar para ocupar 100% da largura do pai */
+    width: 100%;
+    /* Defino a cor de fundo padrão (puxando das variáveis) */
+    background-color: var(--botao-fundo-padrao);
+    /* Defino a cor do texto */
+    color: var(--cor-texto);
+    /* Removo o sublinhado padrão que links costumam ter */
+    text-decoration: none;
+    /* Adiciono espaçamento interno para o botão ficar "gordinho" */
+    padding: 15px;
+    /* Arredondo os cantos do botão */
+    border-radius: 8px;
+    /* Adiciono uma borda sutil padrão */
+    border: 1px solid var(--botao-borda);
+    /* Adiciono uma transição suave de 0.3s para os efeitos de hover */
+    transition: 0.3s;
+    /* Defino a espessura da fonte como negrito */
+    font-weight: bold;
+    /* Forço o cursor a virar uma "mãozinha" ao passar o mouse */
+    cursor: pointer;
+}
+
+/* Efeito Hover (Quando passo o mouse em qualquer botão) */
+/* A regra :not(.botao-alerta) garante que o hover NÃO funcione se estiver em modo alerta */
+.botao:not(.botao-alerta):hover {
+    /* Mudo a cor da borda para a cor destaque (verde) */
+    border-color: var(--cor-primaria);
+    /* Aumento levemente o tamanho do botão para dar interatividade */
+    transform: scale(1.02);
+}
+
+/* --- VARIAÇÕES DE BOTÕES (MODIFICADORES) --- */
+
+/* 1. Botão de PROJETO (O Principal / Destaque) */
+/* Este é o botão "Conheça meu Portfólio" e "Ver Site" */
+.botao.projeto { 
+    /* Restauro a cor de fundo sólida para dar destaque máximo (como era antes) */
+    background-color: var(--botao-fundo-projeto); 
+    /* Mantenho a borda sutil para acabamento */
+    border: 1px solid var(--botao-borda);
+    /* Garanto que o texto tenha cor legível sobre o fundo escuro */
+    color: var(--cor-texto);
+}
+
+/* Efeito ao passar o mouse no botão de projeto */
+.botao.projeto:not(.botao-alerta):hover {
+    /* Clareio levemente a borda para destacar */
+    border-color: var(--cor-primaria);
+}
+
+/* 2. Botão de CONTATO e SECUNDÁRIOS (Outline) */
+/* Usado para Email, LinkedIn, Código, Em Breve e agora também para VER SITE */
+.botao.contato { 
+    /* Deixo o fundo transparente para ter menos peso visual que o principal */
+    background-color: transparent; 
+    /* Adiciono a borda colorida (verde) para marcar a área do botão */
+    border: 1px solid var(--cor-primaria); 
+    /* O texto herda a cor padrão do site */
+    color: var(--cor-texto);
+}
+
+/* Efeito ao passar o mouse nos botões secundários */
+/* A regra :not(.botao-alerta) é CRUCIAL aqui para evitar o fundo verde no aviso amarelo */
+.botao.contato:not(.botao-alerta):hover { 
+    /* Preencho o fundo com a cor verde ao passar o mouse */
+    background-color: var(--cor-primaria); 
+    /* Mudo a cor do texto para escuro para dar contraste com o fundo verde */
+    color: var(--cor-fundo); 
+}
+
+/* 3. Botão do GITHUB (Estilo Outline Padronizado) */
+/* Segue a mesma lógica dos botões de contato */
+.botao.github {
+    /* Fundo transparente */
+    background-color: transparent;
+    /* Borda verde igual aos outros secundários */
+    border: 1px solid var(--cor-primaria);
+    /* Texto na cor padrão */
+    color: var(--cor-texto);
+}
+
+/* Efeito ao passar o mouse no GitHub */
+.botao.github:not(.botao-alerta):hover {
+    /* Preencho de verde ao passar o mouse */
+    background-color: var(--cor-primaria);
+    /* Texto fica escuro */
+    color: var(--cor-fundo);
+}
+
+/* Ajuste específico para o botão de enviar DENTRO do formulário */
+/* Ele herda tudo do .botao, mas precisa de margem extra */
+button.botao { 
+    /* Garanto largura total */
+    width: 100%; 
+    /* Margem acima do botão */
+    margin-top: 10px; 
+    /* Tamanho da fonte */
+    font-size: 1rem; 
+}

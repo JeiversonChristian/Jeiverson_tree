@@ -1,0 +1,117 @@
+/* =======================================================
+   MÓDULO: CARDS DE PROJETOS
+   (Grade, Cartão Individual, Imagens e Conteúdo)
+   ======================================================= */
+
+/* A Grade (Grid) Principal */
+.grade-projetos {
+    /* Ativo o Grid Layout */
+    display: grid;
+    /* Crio colunas automáticas: mínimo de 280px, máximo de 1 fração (flexível) */
+    /* Isso faz a responsividade automática sem precisar de media queries complexas */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* Espaço entre os cartões */
+    gap: 20px;
+    /* Largura total */
+    width: 100%;
+    /* Margem inferior */
+    margin-bottom: 30px;
+}
+
+/* O Cartão Individual */
+.cartao-projeto {
+    /* Cor de fundo do cartão */
+    background-color: var(--botao-fundo-padrao);
+    /* Borda sutil */
+    border: 1px solid var(--botao-borda);
+    /* Arredondamento dos cantos (maior que os botões) */
+    border-radius: 12px;
+    /* Espaçamento interno */
+    padding: 20px;
+    /* Alinhamento do texto à esquerda */
+    text-align: left;
+    /* Transição suave para o hover */
+    transition: 0.3s;
+    /* Uso flexbox vertical para organizar o conteúdo */
+    display: flex;
+    flex-direction: column;
+    /* Empurro o rodapé do card (botões) para o final */
+    justify-content: space-between;
+}
+
+/* Efeito ao passar o mouse no cartão */
+.cartao-projeto:hover {
+    /* A borda fica verde */
+    border-color: var(--cor-primaria);
+    /* O cartão sobe levemente (efeito de flutuação) */
+    transform: translateY(-5px);
+}
+
+/* --- NOVO: Estilo para o link que envolve a imagem --- */
+/* Isso garante que o link não tenha decorações estranhas e ocupe o espaço correto */
+.link-imagem {
+    /* Faço o link se comportar como um bloco */
+    display: block;
+    /* Tiro qualquer sublinhado padrão */
+    text-decoration: none;
+    /* Mostro a mãozinha ao passar o mouse */
+    cursor: pointer;
+}
+
+/* Imagem de capa do projeto */
+.imagem-projeto {
+    /* Largura total do container */
+    width: 100%;
+    /* Altura fixa para manter padronização */
+    height: 150px;
+    /* Corto a imagem para preencher o espaço sem distorcer */
+    object-fit: cover;
+    /* Cantos arredondados */
+    border-radius: 8px;
+    /* Margem abaixo da imagem */
+    margin-bottom: 15px;
+    /* Borda sutil na imagem */
+    border: 1px solid var(--botao-borda);
+    /* Transição suave caso queira animar no futuro */
+    transition: 0.3s;
+}
+
+/* Título do Projeto (h3) */
+.cartao-projeto h3 {
+    /* Cor do texto principal */
+    color: var(--cor-texto);
+    /* Margem abaixo do título */
+    margin-bottom: 10px;
+    /* Tamanho da fonte */
+    font-size: 1.2rem;
+}
+
+/* Descrição do Projeto (p) */
+.cartao-projeto p {
+    /* Tamanho da fonte menor */
+    font-size: 0.9rem;
+    /* Cor secundária */
+    color: var(--cor-texto-secundario);
+    /* Aumento o espaçamento entre as linhas para facilitar leitura */
+    line-height: 1.5;
+    /* Margem abaixo do texto */
+    margin-bottom: 20px;
+}
+
+/* Container dos botões de ação dentro do card */
+.acoes-do-card {
+    /* Uso flexbox para colocar os botões lado a lado */
+    display: flex;
+    /* Espaço entre os botões */
+    gap: 10px;
+    /* Empurro este container para o fundo do card (margem automática no topo) */
+    margin-top: auto;
+}
+
+/* Ajuste específico para os botões dentro dos cards */
+.acoes-do-card .botao {
+    /* Reduzo o padding para os botões ficarem mais compactos no card */
+    padding: 10px;
+    /* Reduzo levemente a fonte */
+    font-size: 0.9rem;
+}
