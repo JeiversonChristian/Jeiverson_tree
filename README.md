@@ -16,7 +16,8 @@ O **Jeiverson_tree** é um agregador de links personalizado (estilo Linktree), d
 * **Tema Dark:** Estilização moderna com paleta de cores escura e detalhes em verde neon.
 * **Modal Interativo:** Foto de perfil ampliável com animação e *Call to Action* (CTA) para orçamento.
 * **Página de Orçamento:** Seção dedicada para apresentação de serviços e captação de clientes.
-* **Interatividade Inteligente:** * Botões de projetos futuros com lógica de "Em breve" temporizada.
+* **Interatividade Inteligente:** 
+    * Botões de projetos futuros com lógica de "Em breve" temporizada.
     * Imagens dos cards clicáveis que ativam as ações correspondentes.
 * **Formulário de Contato via API:** Envio de e-mails direto pelo site (integrado com **EmailJS**) sem redirecionamentos, oferecendo uma experiência fluida.
 
@@ -32,7 +33,7 @@ O código foi estruturado seguindo as melhores práticas modernas de desenvolvim
 * [x] Praticar a estrutura de desenvolvimento web moderno (Modularização JS e CSS).
 * [x] Implementar envio de formulários assíncrono (EmailJS).
 * [x] Criar interações avançadas de UI (Modais e Timers).
-* [ ] Hospedar via cPanel (Próximo passo).
+* [x] Hospedar via cPanel.
 
 ## 👨‍💻 Autor
 Desenvolvido com carinho e código por **Jeiverson Christian**.
